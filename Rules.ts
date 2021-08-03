@@ -146,7 +146,7 @@ const LetterRules: Rule = {
       return SpecialCharactersRules["-"].next(model);
     } else {
       let result = SpecialCharactersRules["+"].next(model);
-      if (!result) {
+      if (result instanceof Error) {
         result = SpecialCharactersRules["|"].next(model);
       }
       return result;
