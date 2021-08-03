@@ -9,21 +9,20 @@ const assert = (expected: any, given: any) => {
 
 const run = (expectedLetters: string, expectedPath: string, map: string) => {
   const parser = new MatrixParser(map);
-  if (!parser.isValid) {
-    console.assert();
-    console.error(parser.invalidReasons, "\n");
-  }
   const path = new PathFinder(parser.toModel());
-  if (!path.isValid) {
+
+  if (!parser.isValid || !path.isValid) {
     console.assert();
-    console.error(path.invalidReasons, "\n");
+    console.error(parser.invalidReasons);
+    console.error(path.invalidReasons);
     return;
   }
-  assert(path.charMap, expectedLetters);
-  assert(path.pathMap, expectedPath);
+  assert(expectedLetters, path.charMap);
+  assert(expectedPath, path.pathMap);
 };
 
 const testMap1 = () => {
+  console.log("\n");
   console.log("Map 1 - a basic example");
   const expectedLetters = "ACB";
   const expectedPath = "@---A---+|C|+---+|+-B-x";
@@ -31,12 +30,14 @@ const testMap1 = () => {
 };
 
 const testMap2 = () => {
+  console.log("\n");
   console.log("Map 2 - go straight through intersections");
   const expectedLetters = "ABCD";
   const expectedPath = "@|A+---B--+|+--C-+|-||+---D--+|x";
   run(expectedLetters, expectedPath, maps[1]);
 };
 const testMap3 = () => {
+  console.log("\n");
   console.log("Map 3 - letters may be found on turns");
   const expectedLetters = "ACB";
   const expectedPath = "@---A---+|||C---+|+-B-x";
@@ -44,6 +45,7 @@ const testMap3 = () => {
 };
 
 const testMap4 = () => {
+  console.log("\n");
   console.log("Map 4 - do not collect a letter from the same location twice");
   const expectedLetters = "GOONIES";
   const expectedPath = "@-G-O-+|+-+|O||+-O-N-+|I|+-+|+-I-+|ES|x";
@@ -51,6 +53,7 @@ const testMap4 = () => {
 };
 
 const testMap5 = () => {
+  console.log("\n");
   console.log("Map 5 - keep direction, even in a compact space");
   const expectedLetters = "BLAH";
   const expectedPath = "@B+++B|+-L-+A+++A-+Hx";
@@ -58,41 +61,49 @@ const testMap5 = () => {
 };
 
 const testMap6 = () => {
+  console.log("\n");
   console.log("Map 6 - no start");
   run("", "", maps[5]);
 };
 
 const testMap7 = () => {
+  console.log("\n");
   console.log("Map 7 - no end");
   run("", "", maps[6]);
 };
 
 const testMap8 = () => {
+  console.log("\n");
   console.log("Map 8 - multiple starts");
   run("", "", maps[7]);
 };
 
 const testMap9 = () => {
+  console.log("\n");
   console.log("Map 9 - multiple ends");
   run("", "", maps[8]);
 };
 
 const testMap10 = () => {
+  console.log("\n");
   console.log("Map 10 - T forks");
   run("", "", maps[9]);
 };
 
 const testMap11 = () => {
+  console.log("\n");
   console.log("Map 11 - broken path");
   run("", "", maps[10]);
 };
 
 const testMap12 = () => {
+  console.log("\n");
   console.log("Map 12 - multiple starting paths");
   run("", "", maps[11]);
 };
 
 const testMap13 = () => {
+  console.log("\n");
   console.log("Map 13 - fake turn");
   run("", "", maps[12]);
 };

@@ -8,9 +8,7 @@ type CameFromDirection = "up" | "down" | "left" | "right";
 
 interface Rule {
   description: string;
-  next: (
-    model: MatrixWithCurrentCooordinates
-  ) => [number, number, CameFromDirection] | Error;
+  next: (model: MatrixWithCurrentCooordinates) => RuleOutput;
 }
 
 interface CharRule {

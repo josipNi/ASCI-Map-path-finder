@@ -23,10 +23,19 @@ export class PathFinder implements MatrixWithCurrentCooordinates {
     this._visitedMap = {};
     this.isValid = true;
     this.invalidReasons = {};
+    this.charMap = "";
+    this.pathMap = "";
     this.mapPath();
   }
 
   private mapPath = (): void => {
+    if (this.currentIndex < 0 || this.currentDimension < 0) {
+      this.isValid = false;
+      this.invalidReasons = {
+        invalidPath: `Path is broken`,
+      };
+      return;
+    }
     const char = this.matrix[this.currentDimension][this.currentIndex];
     if (!char) {
       this.isValid = false;
@@ -72,6 +81,6 @@ export class PathFinder implements MatrixWithCurrentCooordinates {
     this.currentIndex = nextIndex;
     return this.mapPath();
   };
-  pathMap: string = "";
-  charMap: string = "";
+  pathMap: string;
+  charMap: string;
 }
