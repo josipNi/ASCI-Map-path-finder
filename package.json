@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "tsc --watch"
+    "test": "tsc && node ./built/tests/index.js",
+    "watch": "tsc --watch"    
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^4.3.5"
-  }
+  },
+  "type": "module"
 }

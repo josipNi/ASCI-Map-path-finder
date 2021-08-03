@@ -1,9 +1,10 @@
 {
-    "compilerOptions": {
-        "target": "es6",
-        "outDir": "./built",        
-        "module": "commonjs",
-    },
-    "include": ["**/*.ts"],
-    "exclude": ["node_modules"],
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es2015",
+    "outDir": "./built",
+    "moduleResolution": "node",
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"],
 }

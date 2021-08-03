@@ -1,0 +1,11 @@
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+}
+
+.container > span {
+  background-color: #f1f1f1;
+  width: 25%;
+  display: inline;
+}
