@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tsc && node ./built/tests/index.js",
     "watch": "tsc --watch",
-    "serve": "live-server --port=6311"
+    "serve": "tsc && live-server --port=6311"
   },
   "keywords": [],
   "author": "",
