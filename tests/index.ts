@@ -12,7 +12,6 @@ const run = (expectedLetters: string, expectedPath: string, map: string) => {
   if (!parser.isValid) {
     console.assert();
     console.error(parser.invalidReasons, "\n");
-    return;
   }
   const path = new PathFinder(parser.toModel());
   if (!path.isValid) {

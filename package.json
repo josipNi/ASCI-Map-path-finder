@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "tsc && node ./built/tests/index.js",
-    "watch": "tsc --watch"    
+    "watch": "tsc --watch",
+    "serve": "live-server --port=6311"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "live-server": "^1.2.1",
     "typescript": "^4.3.5"
   },
   "type": "module"
