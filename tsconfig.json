@@ -3,8 +3,8 @@
     "target": "es2015",
     "module": "es2015",
     "outDir": "./built",
-    "moduleResolution": "node",
+    "moduleResolution": "node"
   },
   "include": ["**/*.ts"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }

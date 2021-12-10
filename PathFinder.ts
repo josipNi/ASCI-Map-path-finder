@@ -1,4 +1,4 @@
-import { SpecialCharactersRules, LetterRules } from "./Rules";
+import { SpecialCharactersRules, LetterRules } from "./Rules.js";
 export class PathFinder implements MatrixWithCurrentCooordinates {
   currentDimension: number;
   currentIndex: number;
